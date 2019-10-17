@@ -48,19 +48,25 @@ const medias =
 };
 
 
-navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
+navigator.mediaDevices = navigator.mediaDevices ||
+((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
    getUserMedia: function(c) {
      return new Promise(function(y, n) {
        (navigator.mozGetUserMedia ||
         navigator.webkitGetUserMedia).call(navigator, c, y, n);
      });
    }
-} : null);
+} : null
+);
 
 
 
 if(navigator.mediaDevices)
 {
+
+document.getElementById("left").syle.visibility="hidden";
+document.getElementById("right").syle.visibility="hidden";
+
 const promise = navigator.mediaDevices.getUserMedia(medias);
 
 promise.then(successCallback)
@@ -76,7 +82,12 @@ function errorCallback(err) {
   alert(err);
  };
 
+}else
+{
+document.getElementById("left").syle.visibility="visible";
+document.getElementById("right").syle.visibility="visible";
 }
+
 
     // videoの映像をcanvasに描画する
     function draw()

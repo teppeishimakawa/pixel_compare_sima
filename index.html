@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+      <style>
+
+      #canvas
+      {
+        left:0px;
+        position:fixed;
+        z-index:4;
+      }
+
+      #video
+      {
+        left:0px;
+        position:fixed;
+        width: 1280px;
+        height: 720px;
+        z-index:2;
+      }
+
+      #div1
+      {
+        position:fixed;
+        top:5px;
+        left:5px;
+        font-size:10px;
+        z-index:8;
+      }
+      #div2
+      {
+        position:fixed;
+        top:5px;
+        right:5px;
+        font-size:5px;
+         z-index:8;
+      }
+     #col_dis
+      {
+        left:0px;
+        bottom:0px;
+        position:fixed;
+        z-index:8;
+      }
+
+      #qua_font
+      {
+      font-size:6px;
+      }
+
+    </style>
+
+ <title>detect</title>
+</head>
+
+<body>
+    <div id="col_dis">
+        <input id="distance" type="number"  style="width:50px;"/>
+        <input id="quality" type="number"  style="width:50px;"/>
+    </div>
+    <div id="bg">
+      <canvas id="canvas"></canvas>
+      <video autoplay muted playsinline id="video" ></video>
+    </div>
+
+
+<!--左ボタン群のレイヤー-->
+<div id="div1">
+<input type="button" id="conf" value="save_conf" size="10">
+<input type="button" id="btnPlay" value="start" size="10">
+<div id="count"></div>
+<div id="count2"></div>
+</div>
+
+
+<script>
+
+
+var colorDistance;
+var seido;
+
+
+init();
+
+ function init()
+{
+//localStorageの内容を呼び出し
+document.getElementById("distance").value=localStorage.getItem("sto_dis");
+document.getElementById("quality").value=localStorage.getItem("sto_qua");
+colorDistance = document.getElementById('distance').value;
+seido=parseInt(document.getElementById("quality").value);
+
+if(!colorDistance)
+ {
+document.getElementById('distance').value = 20;
+document.getElementById("quality").value= 4;
+colorDistance=20;
+seido=4;
+ }
+}
+///////////////////////////////////////////////////////
+
+
+
+//localstorage保存
+document.getElementById("conf").addEventListener('click', function(ev)
+   {
+    //chroma関連のlocalstorage
+    localStorage.setItem("sto_dis",document.getElementById("distance").value);
+    localStorage.setItem("sto_qua",document.getElementById("quality").value);
+   });
+
+</script>
+<script type="text/javascript" src="./chromatest.js"></script>
+
+</body>
+</html>

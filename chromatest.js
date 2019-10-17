@@ -65,8 +65,6 @@ navigator.mediaDevices = navigator.mediaDevices ||
 if(navigator.mediaDevices)
 {
 
-document.getElementById("left").style.visibility="hidden";
-document.getElementById("right").style.visibility="hidden";
 
 const promise = navigator.mediaDevices.getUserMedia(medias);
 

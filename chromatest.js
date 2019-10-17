@@ -64,8 +64,8 @@ navigator.mediaDevices = navigator.mediaDevices ||
 if(navigator.mediaDevices)
 {
 
-document.getElementById("left").syle.visibility="hidden";
-document.getElementById("right").syle.visibility="hidden";
+document.getElementById("left").style.visibility="hidden";
+document.getElementById("right").style.visibility="hidden";
 
 const promise = navigator.mediaDevices.getUserMedia(medias);
 
@@ -84,8 +84,8 @@ function errorCallback(err) {
 
 }else
 {
-document.getElementById("left").syle.visibility="visible";
-document.getElementById("right").syle.visibility="visible";
+document.getElementById("left").style.visibility="visible";
+document.getElementById("right").style.visibility="visible";
 }
 
 

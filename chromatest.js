@@ -81,7 +81,7 @@ function errorCallback(err) {
   alert(err);
  };
 
-}else if(!window.DeviceOrientationEvent)
+}else
 {
 document.getElementById("left").style.visibility="visible";
 document.getElementById("right").style.visibility="visible";

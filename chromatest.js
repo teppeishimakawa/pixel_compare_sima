@@ -43,7 +43,8 @@ const medias =
 {
   audio: false,
   video: {
-    facingMode: "user" // フロントカメラにアクセス
+    facingMode: "environment"
+    //facingMode: "user" // フロントカメラにアクセス
   }
 };
 
